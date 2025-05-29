@@ -7,6 +7,10 @@ fn AboutText() -> Html {
         <div class="prose prose-slate dark:prose-invert max-w-2xl m-auto p-4 pt-12">
             <h2>{"About"}</h2>
             <p>
+                {"This is a fork of the "}<a href="https://diff.rs/">{"diff.rs"}</a>
+                {" tool, hosted on github pages, for use when auditing crates using cargo-vet."}
+            </p>
+            <p>
                 {"Web-based tool to view the differences between Rust crate versions. "}
                 {"Enter a crate name such as "}<code>{"serde"}</code>
                 {" in the search field in the top-right corner to get started. " }
@@ -109,18 +113,6 @@ fn AboutText() -> Html {
                 {"To view and diff crates, it makes requests to the crates.io API, "}
                 {"which may log requests according to its "}
                 <a href="https://foundation.rust-lang.org/policies/privacy-policy/">{"Privacy Policy"}</a>
-                {"."}
-            </p>
-            <p>
-                {"In addition, diff.rs contains some analytics that is used to measure "}
-                {"how many active users it has. This service stores some data in anonymized "}
-                {"fashion, according to the "}
-                <a href="https://plausible.io/data-policy">{"Data Policy"}</a>
-                {". "}
-                {"If you use an adblocker, then analytics will likely be blocked. "}
-                {"It does not use cookies, fingerprinting or any other invasive means "}
-                {"to track visitors. You can view the collected data "}
-                <a href="https://counter.dev/dashboard.html?user=xfbs&token=4kPlix1Li7w%3D">{"here"}</a>
                 {"."}
             </p>
         </div>

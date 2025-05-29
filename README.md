@@ -1,6 +1,11 @@
-# diff.rs
+> **NOTE**
+> This is a fork of [diff.rs](https://github.com/xfbs/diff.rs), hosted on github
+> pages for use by [cargo-vet](https://github.com/mozilla/cargo-vet) for
+> performing audits. What follows is the original README from that repository.
 
-[![ci status](https://gitlab.com/xfbs/diff.rs/badges/master/pipeline.svg)](https://gitlab.com/xfbs/diff.rs/-/pipelines)
+---
+
+# diff.rs
 
 Web application to view the difference between Rust crate versions. It is
 deployed at [diff.rs](https://diff.rs).

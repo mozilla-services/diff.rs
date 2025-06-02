@@ -20,7 +20,7 @@ jobs:
         echo `pwd`/trunk >> $GITHUB_PATH
     - name: Build with Trunk
       run: |
-        trunk build --release --public-url "https://mystor.github.io/diff.rs/"
+        trunk build --release --public-url "https://mozilla-services.github.io/diff.rs/"
     - name: Deploy GitHub Pages
       run: |
         git worktree add gh-pages gh-pages

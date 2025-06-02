@@ -1,10 +1,10 @@
 name: Continuous Integration
 
-# run for pull requests and pushes to master branch
+# run for pull requests and pushes to main branch
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   pull_request:
 
 # always use pretty colors

@@ -1,0 +1,36 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Install wasm32-unknown-unknown target
+      run: rustup target add wasm32-unknown-unknown
+    - name: Install Trunk
+      run: |
+        mkdir trunk
+        curl -sSL https://github.com/thedodd/trunk/releases/download/v0.21.1/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./trunk
+        echo `pwd`/trunk >> $GITHUB_PATH
+    - name: Build with Trunk
+      run: |
+        trunk build --release --public-url "https://mozilla-services.github.io/diff.rs/"
+    - name: Deploy GitHub Pages
+      run: |
+        git worktree add gh-pages gh-pages
+        git config user.name "Deploy from CI"
+        git config user.email ""
+        cd gh-pages
+        # Delete the ref to avoid keeping history.
+        git update-ref -d refs/heads/gh-pages
+        rm -rf *
+        mv ../dist/* .
+        git add .
+        git commit -m "Deploy $GITHUB_SHA to gh-pages"
+        git push --force
